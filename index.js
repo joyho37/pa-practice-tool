@@ -1,6 +1,6 @@
 // 注音卡
-var vowels = ["/images/vowels/a_e.png", "/images/vowels/a.png", "/images/vowels/ar.png", "/images/vowels/e.png", "/images/vowels/er.png", "/images/vowels/i.png", "/images/vowels/o.png", "/images/vowels/oa.png", "/images/vowels/oo.png", "/images/vowels/ou.png"];
-var consonants = ["/images/consonants/b.png", "/images/consonants/d.png", "/images/consonants/f.png", "/images/consonants/g.png", "/images/consonants/h.png", "/images/consonants/k.png", "/images/consonants/l.png", "/images/consonants/m.png", "/images/consonants/n.png", "/images/consonants/p.png", "/images/consonants/r.png", "/images/consonants/s.png", "/images/consonants/t.png", "/images/consonants/th-z.png", "/images/consonants/th.png"];
+var vowels = ["images/vowels/a_e.png", "images/vowels/a.png", "images/vowels/ar.png", "images/vowels/e.png", "images/vowels/er.png", "images/vowels/i.png", "images/vowels/o.png", "images/vowels/oa.png", "images/vowels/oo.png", "images/vowels/ou.png"];
+var consonants = ["images/consonants/b.png", "images/consonants/d.png", "images/consonants/f.png", "images/consonants/g.png", "images/consonants/h.png", "images/consonants/k.png", "images/consonants/l.png", "images/consonants/m.png", "images/consonants/n.png", "images/consonants/p.png", "images/consonants/r.png", "images/consonants/s.png", "images/consonants/t.png", "images/consonants/th-z.png", "images/consonants/th.png"];
 
 var currentIndex = 0;
 var shuffledCards = [];
