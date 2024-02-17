@@ -1,9 +1,11 @@
 // 注音卡
-var vowels = ["images/vowels/a_e.png", "images/vowels/a.png", "images/vowels/ar.png", "images/vowels/e.png", "images/vowels/er.png", "images/vowels/i.png", "images/vowels/o.png", "images/vowels/oa.png", "images/vowels/oo.png", "images/vowels/ou.png"];
-var consonants = ["images/consonants/b.png", "images/consonants/d.png", "images/consonants/f.png", "images/consonants/g.png", "images/consonants/h.png", "images/consonants/k.png", "images/consonants/l.png", "images/consonants/m.png", "images/consonants/n.png", "images/consonants/p.png", "images/consonants/r.png", "images/consonants/s.png", "images/consonants/t.png", "images/consonants/th-z.png", "images/consonants/th.png"];
+let vowels = ["images/vowels/a_e.png", "images/vowels/a.png", "images/vowels/ar.png", "images/vowels/e.png", "images/vowels/er.png", "images/vowels/i.png", "images/vowels/o.png", "images/vowels/oa.png", "images/vowels/oo.png", "images/vowels/ou.png"];
+let consonants = ["images/consonants/b.png", "images/consonants/d.png", "images/consonants/f.png", "images/consonants/g.png", "images/consonants/h.png", "images/consonants/k.png", "images/consonants/l.png", "images/consonants/m.png", "images/consonants/n.png", "images/consonants/p.png", "images/consonants/r.png", "images/consonants/s.png", "images/consonants/t.png", "images/consonants/th-z.png", "images/consonants/th.png"];
 
-var currentIndex = 0;
-var shuffledCards = [];
+let currentIndex = 0;
+let shuffledCards = [];
+let startButton = document.getElementById('start');
+let restartButton = document.getElementById('restart');
 
 // Fisher-Yates 洗牌算法
 function shuffleArray(array) {
@@ -13,8 +15,22 @@ function shuffleArray(array) {
   }
 }
 
-// 初始化洗牌
+// 預載圖片函式
+function preloadImages(images) {
+  for (let i = 0; i < images.length; i++) {
+    const img = new Image();
+    img.src = images[i];
+  }
+}
+
+// 初始化（預載圖片及洗牌）
 function initializeShuffle() {
+  startButton.style.display = 'block';
+  restartButton.style.display = 'none';
+
+  preloadImages(vowels);
+  preloadImages(consonants);
+
   shuffledCards = [];
   shuffleArray(consonants);
   shuffleArray(vowels);
@@ -29,13 +45,16 @@ function initializeShuffle() {
   }
 
   shuffleArray(shuffledCards);
+
   currentIndex = 0;
 }
 
 initializeShuffle();
 
-// 隨機顯示卡片
+// 顯示牌組
 function showRandomCard() {
+  startButton.textContent = '下一個';
+
   if (currentIndex < shuffledCards.length) {
     const card = shuffledCards[currentIndex];
     document.getElementById("consonants").src = card.consonant;
@@ -43,12 +62,28 @@ function showRandomCard() {
 
     currentIndex++;
 
-    // 卡片計數器
     document.getElementById('counter').textContent = currentIndex;
 
   } else {
-    alert("完成");
+
+    startButton.classList.remove('btn-primary');
+    startButton.classList.add('btn-success');
+    startButton.textContent = '完成';
+
+    startButton.setAttribute('data-bs-toggle', 'modal');
+    startButton.setAttribute('data-bs-target', '#staticBackdrop');
+
   }
+}
+
+// 關閉完成提示視窗
+function closeModal() {
+  startButton.removeAttribute('data-bs-toggle', 'modal');
+  startButton.removeAttribute('data-bs-target', '#staticBackdrop');
+  startButton.classList.remove('btn-success');
+  startButton.classList.add('btn-primary');
+  startButton.style.display = 'none';
+  restartButton.style.display = 'block';
 }
 
 // 重新開始

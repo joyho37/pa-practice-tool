@@ -12,29 +12,43 @@
 <body>
   <div class="container">
     <h1 class="text-center mt-5">PA練習小工具</h1>
-    
+
     <!-- 選單 -->
-    <div class="d-grid gap-2 d-md-flex justify-content-center my-5">
+    <div class="d-grid gap-2 d-md-flex justify-content-center mt-4">
       <button type="button" class="btn btn-secondary btn-lg">140音</button>
       <button type="button" class="btn btn-secondary btn-lg" disabled>280音</button>
     </div>
 
     <!-- 注音卡 -->
-    <div class="text-center">
-      <img id="consonants" src="" class="d-block mx-auto" width="150" alt="">
-      <img id="vowels" src="" class="d-block mx-auto" width="150" alt="">
+    <div class="text-center mt-5">
+      <img id="consonants" src="" class="d-block mx-auto" width="120" alt="">
+      <img id="vowels" src="" class="d-block mx-auto" width="120" alt="">
     </div>
 
     <!-- 計數器 -->
-    <p id="counter" class="text-center">0</p>
+    <div id="counter" class="text-center mt-1">0</div>
 
     <!-- 按鈕 -->
     <div class="d-grid gap-2 d-md-flex justify-content-center mt-5">
-      <button type="button" class="btn btn-primary btn-lg" onclick="showRandomCard()">下一個</button>
-      <button type="button" class="btn btn-primary btn-lg" onclick="restart()">重新開始</button>
+      <button type="button" class="btn btn-primary btn-lg" onclick="showRandomCard()" id="start">開始</button>
+      <button type="button" class="btn btn-primary btn-lg" onclick="restart()" id="restart" data-bs-dismiss="modal">重新開始</button>
     </div>
 
-  </div>
+    <!-- 完成提示 -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header border-0">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">您已經完成140音的練習！</h1>
+          </div>
+          <div class="modal-footer border-0">
+            <button type="button" class="btn btn-secondary" onclick="closeModal()" data-bs-dismiss="modal">我知道了</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- .container -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
