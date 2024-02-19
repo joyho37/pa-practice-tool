@@ -4,8 +4,24 @@ let consonants = ["images/consonants/b.png", "images/consonants/d.png", "images/
 
 let currentIndex = 0;
 let shuffledCards = [];
+let consonantImg = document.getElementById("consonant");
+let vowelImg = document.getElementById("vowel");
 let startButton = document.getElementById('start');
-let restartButton = document.getElementById('restart');
+let counter = document.getElementById('counter');
+let suah = document.getElementById('suah'); // ‧ㄙㄨㄚ
+let keySpaceHint = document.getElementById('keySpaceHint');
+
+// 空白鍵監聽器
+function handleKeyPress(event) {
+  if (currentIndex != 0 && currentIndex <= shuffledCards.length) {
+    if (event.code === "Space") {
+      // 防止預設的空白鍵行為（例如捲動頁面）
+      event.preventDefault();
+
+      startButton.click();
+    }
+  }
+}
 
 // Fisher-Yates 洗牌算法
 function shuffleArray(array) {
@@ -25,8 +41,22 @@ function preloadImages(images) {
 
 // 初始化（預載圖片及洗牌）
 function initializeShuffle() {
-  startButton.style.display = 'block';
-  restartButton.style.display = 'none';
+  // 清牌
+  consonantImg.src = "";
+  vowelImg.src = "";
+
+  suah.style.display = 'none';
+  counter.style.display = 'block';
+
+  startButton.removeAttribute('data-bs-toggle', 'modal');
+  startButton.removeAttribute('data-bs-target', '#staticBackdrop');
+
+  startButton.classList.remove('btn-success');
+  startButton.classList.add('btn-primary');
+  startButton.textContent = '點我開始';
+  keySpaceHint.style.display = 'none';
+  // 啟用空白鍵監聽
+  document.addEventListener('keydown', handleKeyPress);
 
   preloadImages(vowels);
   preloadImages(consonants);
@@ -47,6 +77,8 @@ function initializeShuffle() {
   shuffleArray(shuffledCards);
 
   currentIndex = 0;
+  counter.textContent = currentIndex;
+
 }
 
 initializeShuffle();
@@ -54,40 +86,38 @@ initializeShuffle();
 // 顯示牌組
 function showRandomCard() {
   startButton.textContent = '下一個';
+  keySpaceHint.style.display = 'block';
 
   if (currentIndex < shuffledCards.length) {
     const card = shuffledCards[currentIndex];
-    document.getElementById("consonants").src = card.consonant;
-    document.getElementById("vowels").src = card.vowel;
+    consonantImg.src = card.consonant;
+    vowelImg.src = card.vowel;
 
     currentIndex++;
-
-    document.getElementById('counter').textContent = currentIndex;
+    counter.textContent = currentIndex;
 
   } else {
 
+    keySpaceHint.style.display = 'none';
+    suah.style.display = 'block';
+    counter.style.display = 'none';
+
     startButton.classList.remove('btn-primary');
     startButton.classList.add('btn-success');
-    startButton.textContent = '完成';
+    startButton.textContent = '點我完成';
 
     startButton.setAttribute('data-bs-toggle', 'modal');
     startButton.setAttribute('data-bs-target', '#staticBackdrop');
 
+    // 彈出完成視窗時移除空白鍵監聽
+    if (startButton.hasAttribute('data-bs-target')) {
+      document.removeEventListener('keydown', handleKeyPress);
+    }
   }
 }
 
-// 關閉完成提示視窗
-function closeModal() {
-  startButton.removeAttribute('data-bs-toggle', 'modal');
-  startButton.removeAttribute('data-bs-target', '#staticBackdrop');
-  startButton.classList.remove('btn-success');
-  startButton.classList.add('btn-primary');
-  startButton.style.display = 'none';
-  restartButton.style.display = 'block';
-}
 
 // 重新開始
 function restart() {
   initializeShuffle();
-  showRandomCard();
 }

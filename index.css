@@ -1,0 +1,17 @@
+.consonant-placeholder {
+    display: block;
+    background-image: url('images/consonant-placeholder.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    height: 100%;
+}
+
+.vowel-placeholder {
+    display: block;
+    background-image: url('images/vowel-placeholder.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    height: 100%;
+}
