@@ -11,17 +11,17 @@
 </head>
 
 <body>
-  <div class="container py-5">
+  <div class="container py-4">
     <h1 class="text-center">PA練習小工具</h1>
 
     <!-- 選單 -->
-    <div class="d-flex gap-2 justify-content-center mt-4">
+    <div class="d-flex gap-2 justify-content-center mt-3 mt-sm-4">
       <button type="button" class="btn btn-secondary btn-lg">140音</button>
       <button type="button" class="btn btn-secondary btn-lg" disabled>280音</button>
     </div>
 
     <!-- 注音卡 -->
-    <div class="mt-5">
+    <div class="mt-4 mt-sm-5">
       <!-- 子音 -->
       <div class="consonant-placeholder">
         <img id="consonant" src="">
@@ -33,21 +33,21 @@
     </div>
 
     <!-- 計數器 -->
-    <div id="counter" class="text-center mt-2">0</div>
+    <div id="counter" class="mt-1 text-center">0</div>
     <!--‧ㄙㄨㄚ -->
-    <div id="suah" class="mt-2 mx-auto fw-bold fs-5">‧ㄙㄨㄚ</div>
+    <div id="suah" class="mt-1 mx-auto fw-bold fs-5">‧ㄙㄨㄚ</div>
 
     <!-- 按鈕 -->
-    <div class="d-flex gap-2 justify-content-center mt-5">
+    <div class="d-flex gap-2 justify-content-center mt-4 mt-sm-5">
       <button type="button" class="btn btn-primary btn-lg" onclick="showRandomCard()" id="start"></button>
     </div>
 
-    <p id="keySpaceHint" class="small text-secondary text-center mt-1">可使用空白鍵</p>
+    <p id="keySpaceHint" class="mt-1 small text-secondary text-center">可使用空白鍵</p>
 
     <!-- 完成提示 -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
       aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog modal-sm">
+      <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header border-0">
             <h1 class="modal-title fs-5" id="staticBackdropLabel">您已經完成140音的練習！</h1>

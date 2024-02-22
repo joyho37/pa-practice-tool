@@ -1,6 +1,6 @@
 // 注音卡
-let vowels = ["images/vowels/a_e.png", "images/vowels/a.png", "images/vowels/ar.png", "images/vowels/e.png", "images/vowels/er.png", "images/vowels/i.png", "images/vowels/o.png", "images/vowels/oa.png", "images/vowels/oo.png", "images/vowels/ou.png"];
-let consonants = ["images/consonants/b.png", "images/consonants/d.png", "images/consonants/f.png", "images/consonants/g.png", "images/consonants/h.png", "images/consonants/k.png", "images/consonants/l.png", "images/consonants/m.png", "images/consonants/n.png", "images/consonants/p.png", "images/consonants/r.png", "images/consonants/s.png", "images/consonants/t.png", "images/consonants/th-z.png", "images/consonants/th.png"];
+let consonants = ["images/consonants/1.png", "images/consonants/2.png", "images/consonants/3.png", "images/consonants/4.png", "images/consonants/12.png", "images/consonants/14.png", "images/consonants/15.png", "images/consonants/19.png", "images/consonants/21.png", "images/consonants/22.png", "images/consonants/23.png", "images/consonants/38.png", "images/consonants/40.png", "images/consonants/41.png", "images/consonants/3560.png"];
+let vowels = ["images/vowels/45.png", "images/vowels/46.png", "images/vowels/47.png", "images/vowels/48.png", "images/vowels/49.png", "images/vowels/50.png", "images/vowels/62.png", "images/vowels/63.png", "images/vowels/64.png", "images/vowels/4647.png"];
 
 let currentIndex = 0;
 let shuffledCards = [];
@@ -92,6 +92,29 @@ function showRandomCard() {
     const card = shuffledCards[currentIndex];
     consonantImg.src = card.consonant;
     vowelImg.src = card.vowel;
+
+    // 調整子音ㄖㄨ的卡片大小
+    if (card.consonant === "images/consonants/3560.png") {
+      consonantImg.parentElement.style.height = '11.75rem';
+      if (window.innerWidth <= 576) {
+        consonantImg.parentElement.style.height = '9.75rem';
+      }
+      consonantImg.parentElement.style.backgroundImage = 'unset';
+    } else {
+      consonantImg.parentElement.style.height = '';
+      consonantImg.parentElement.style.backgroundImage = '';
+    }
+    // 調整母音ㄚㄦ的卡片大小
+    if (card.vowel === "images/vowels/4647.png") {
+      vowelImg.parentElement.style.height = '11.75rem';
+      if (window.innerWidth <= 576) {
+        vowelImg.parentElement.style.height = '9.75rem';
+      }
+      vowelImg.parentElement.style.backgroundImage = 'unset';
+    } else {
+      vowelImg.parentElement.style.height = '';
+      vowelImg.parentElement.style.backgroundImage = '';
+    }
 
     currentIndex++;
     counter.textContent = currentIndex;
