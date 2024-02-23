@@ -20,13 +20,13 @@
       <button type="button" class="btn btn-secondary btn-lg" disabled>280音</button>
     </div>
 
-    <!-- 注音卡 -->
+    <!-- 音素符號卡 -->
     <div class="mt-4 mt-sm-5">
-      <!-- 子音 -->
+      <!-- 子音積木 -->
       <div class="consonant-placeholder">
         <img id="consonant" src="">
       </div>
-      <!-- 母音 -->
+      <!-- 母音積木 -->
       <div class="vowel-placeholder">
         <img id="vowel" src="">
       </div>
@@ -47,15 +47,22 @@
     <!-- 完成提示 -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
       aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog">
+      <div class="modal-dialog modal-lg">
         <div class="modal-content">
-          <div class="modal-header border-0">
+          <div class="modal-header">
             <h1 class="modal-title fs-5" id="staticBackdropLabel">您已經完成140音的練習！</h1>
           </div>
-          <div class="modal-footer border-0">
-            <button type="button" class="btn btn-secondary" onclick="restart()" data-bs-dismiss="modal">我知道了</button>
+          <div class="modal-body">
+            <p>歇口氣，喝口茶，聽首歌，但聽完後不要睡著喔。</p>
+            <div class="ratio ratio-16x9">
+              <iframe src="https://www.youtube.com/embed/u0qB0YA6vGA?rel=0" title="140音搖籃曲 YouTube 影片"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"></iframe>
+            </div>
           </div>
-        </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" onclick="restart()" data-bs-dismiss="modal">再練一遍</button>
+          </div>
+        </div><!-- .modal-content -->
       </div>
     </div>
 

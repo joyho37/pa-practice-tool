@@ -1,5 +1,6 @@
-button {
-    /* 防止行動瀏覽器雙擊放大 */
+/* 防止行動瀏覽器雙擊放大 */
+button,
+img {
     touch-action: manipulation;
 }
 

@@ -1,4 +1,4 @@
-// 注音卡
+// 音素符號卡
 let consonants = ["images/consonants/1.png", "images/consonants/2.png", "images/consonants/3.png", "images/consonants/4.png", "images/consonants/12.png", "images/consonants/14.png", "images/consonants/15.png", "images/consonants/19.png", "images/consonants/21.png", "images/consonants/22.png", "images/consonants/23.png", "images/consonants/38.png", "images/consonants/40.png", "images/consonants/41.png", "images/consonants/3560.png"];
 let vowels = ["images/vowels/45.png", "images/vowels/46.png", "images/vowels/47.png", "images/vowels/48.png", "images/vowels/49.png", "images/vowels/50.png", "images/vowels/62.png", "images/vowels/63.png", "images/vowels/64.png", "images/vowels/4647.png"];
 
@@ -83,7 +83,7 @@ function initializeShuffle() {
 
 initializeShuffle();
 
-// 顯示牌組
+// 顯示音素組合
 function showRandomCard() {
   startButton.textContent = '下一個';
   keySpaceHint.style.display = 'block';
@@ -138,7 +138,6 @@ function showRandomCard() {
     }
   }
 }
-
 
 // 重新開始
 function restart() {
