@@ -139,6 +139,14 @@ function showRandomCard() {
   }
 }
 
+// 當Modal關閉時停止影片播放
+var modal = document.getElementById('staticBackdrop');
+modal.addEventListener('hidden.bs.modal', function () {
+  var iframe = document.getElementById('youtubeIframe');
+  var iframeSrc = iframe.src;
+  iframe.src = iframeSrc; // 重新設置iframe的src，以停止影片播放
+});
+
 // 重新開始
 function restart() {
   initializeShuffle();
