@@ -1,0 +1,42 @@
+/* 防止行動瀏覽器雙擊放大 */
+button,
+img {
+    touch-action: manipulation;
+}
+
+.consonant-placeholder,
+.vowel-placeholder {
+    position: relative;
+    margin: auto;
+    width: 6rem;
+}
+
+#vowel {
+    position: relative;
+    top: -2em;
+}
+
+@media (max-width: 575.98px) {
+    .consonant-placeholder,
+    .vowel-placeholder {
+        width: 5rem;
+    }
+
+    #vowel {
+        top: -1.65em;
+    }
+}
+
+.consonant-placeholder img,
+.vowel-placeholder img {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/*‧ㄙㄨㄚ垂直置中 */
+#suah {
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    white-space: nowrap;
+}
