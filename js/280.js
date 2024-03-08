@@ -1,6 +1,11 @@
-// 音素符號卡
+// 母音
 let vowels = ["images/280/vowels/45.png", "images/280/vowels/46.png", "images/280/vowels/47.png", "images/280/vowels/48.png", "images/280/vowels/49.png", "images/280/vowels/50.png", "images/280/vowels/62.png", "images/280/vowels/63.png", "images/280/vowels/64.png", "images/280/vowels/4647.png"];
-let consonants = ["images/280/consonants/dr-3260.png", "images/280/consonants/tr-3360.png", "images/280/consonants/br-13560.png", "images/280/consonants/pr-23560.png"];
+// 豬豬家族
+let consonantsPartOne = ["images/280/consonants/dr-3260.png", "images/280/consonants/tr-3360.png", "images/280/consonants/br-13560.png", "images/280/consonants/pr-23560.png"];
+// 樂樂家族
+let consonantsPartTwo = ["images/280/consonants/bl-119.png", "images/280/consonants/pl-219.png", "images/280/consonants/kl-2219.png", "images/280/consonants/sl-3819.png"];
+
+let consonants = [];
 
 let currentIndex = 0;
 let shuffledCards = [];
@@ -18,7 +23,6 @@ function handleKeyPress(event) {
         if (event.code === "Space") {
             // 防止預設的空白鍵行為（例如捲動頁面）
             event.preventDefault();
-
             startButton.click();
         }
     }
@@ -64,6 +68,16 @@ function initializeShuffle() {
     // preloadImages(consonants);
 
     shuffledCards = [];
+
+    // 豬豬家族
+    if (document.getElementById('partOne')) {
+        consonants = consonantsPartOne;
+    }
+    // 樂樂家族
+    if (document.getElementById('partTwo')) {
+        consonants = consonantsPartTwo;
+    }
+
     shuffleArray(consonants);
     shuffleArray(vowels);
 
@@ -83,9 +97,31 @@ function initializeShuffle() {
 
 }
 
-initializeShuffle();
+// initializeShuffle();
 
-// 顯示音素組合
+// 豬豬家族
+function addIdtoTabPaneOne() {
+    let tabPane = document.querySelector('.tab-pane');
+    if (tabPane) {
+        tabPane.id = 'partOne';
+        document.body.style.backgroundColor = "rgb(255 243 242)";
+        document.getElementById('partOne').classList.add('active');
+        initializeShuffle();
+    }
+}
+
+// 樂樂家族
+function addIdtoTabPaneTwo() {
+    let tabPane = document.querySelector('.tab-pane');
+    if (tabPane) {
+        tabPane.id = 'partTwo';
+        document.body.style.backgroundColor = "rgb(240 248 255)";
+        document.getElementById('partTwo').classList.add('active');
+        initializeShuffle();
+    }
+}
+
+// 隨機音素組合
 function showRandomCard() {
     startButton.textContent = '下一個';
     keySpaceHint.style.display = 'block';
@@ -216,6 +252,128 @@ function showRandomCard() {
         } else if (card.consonant === "images/280/consonants/pr-23560.png" && card.vowel === "images/280/vowels/4647.png") {
             audioPlayer.style.display = 'block';
             audioPlayer.src = "audios/280/c23560v4647.mp3";
+        } else if (card.consonant === "images/280/consonants/bl-119.png" && card.vowel === "images/280/vowels/45.png") {
+            audioPlayer.style.display = 'block';
+            audioPlayer.src = "audios/280/c119v45.mp3";
+        } else if (card.consonant === "images/280/consonants/bl-119.png" && card.vowel === "images/280/vowels/48.png") {
+            audioPlayer.style.display = 'block';
+            audioPlayer.src = "audios/280/c119v48.mp3";
+        } else if (card.consonant === "images/280/consonants/bl-119.png" && card.vowel === "images/280/vowels/49.png") {
+            audioPlayer.style.display = 'block';
+            audioPlayer.src = "audios/280/c119v49.mp3";
+        } else if (card.consonant === "images/280/consonants/bl-119.png" && card.vowel === "images/280/vowels/50.png") {
+            audioPlayer.style.display = 'block';
+            audioPlayer.src = "audios/280/c119v50.mp3";
+        } else if (card.consonant === "images/280/consonants/bl-119.png" && card.vowel === "images/280/vowels/62.png") {
+            audioPlayer.style.display = 'block';
+            audioPlayer.src = "audios/280/c119v62.mp3";
+        } else if (card.consonant === "images/280/consonants/bl-119.png" && card.vowel === "images/280/vowels/63.png") {
+            audioPlayer.style.display = 'block';
+            audioPlayer.src = "audios/280/c119v63.mp3";
+        } else if (card.consonant === "images/280/consonants/bl-119.png" && card.vowel === "images/280/vowels/64.png") {
+            audioPlayer.style.display = 'block';
+            audioPlayer.src = "audios/280/c119v64.mp3";
+        } else if (card.consonant === "images/280/consonants/bl-119.png" && card.vowel === "images/280/vowels/46.png") {
+            audioPlayer.style.display = 'block';
+            audioPlayer.src = "audios/280/c119v46.mp3";
+        } else if (card.consonant === "images/280/consonants/bl-119.png" && card.vowel === "images/280/vowels/47.png") {
+            audioPlayer.style.display = 'block';
+            audioPlayer.src = "audios/280/c119v47.mp3";
+        } else if (card.consonant === "images/280/consonants/bl-119.png" && card.vowel === "images/280/vowels/4647.png") {
+            audioPlayer.style.display = 'block';
+            audioPlayer.src = "audios/280/c119v4647.mp3";
+        } else if (card.consonant === "images/280/consonants/pl-219.png" && card.vowel === "images/280/vowels/45.png") {
+            audioPlayer.style.display = 'block';
+            audioPlayer.src = "audios/280/c219v45.mp3";
+        } else if (card.consonant === "images/280/consonants/pl-219.png" && card.vowel === "images/280/vowels/48.png") {
+            audioPlayer.style.display = 'block';
+            audioPlayer.src = "audios/280/c219v48.mp3";
+        } else if (card.consonant === "images/280/consonants/pl-219.png" && card.vowel === "images/280/vowels/49.png") {
+            audioPlayer.style.display = 'block';
+            audioPlayer.src = "audios/280/c219v49.mp3";
+        } else if (card.consonant === "images/280/consonants/pl-219.png" && card.vowel === "images/280/vowels/50.png") {
+            audioPlayer.style.display = 'block';
+            audioPlayer.src = "audios/280/c219v50.mp3";
+        } else if (card.consonant === "images/280/consonants/pl-219.png" && card.vowel === "images/280/vowels/62.png") {
+            audioPlayer.style.display = 'block';
+            audioPlayer.src = "audios/280/c219v62.mp3";
+        } else if (card.consonant === "images/280/consonants/pl-219.png" && card.vowel === "images/280/vowels/63.png") {
+            audioPlayer.style.display = 'block';
+            audioPlayer.src = "audios/280/c219v63.mp3";
+        } else if (card.consonant === "images/280/consonants/pl-219.png" && card.vowel === "images/280/vowels/64.png") {
+            audioPlayer.style.display = 'block';
+            audioPlayer.src = "audios/280/c219v64.mp3";
+        } else if (card.consonant === "images/280/consonants/pl-219.png" && card.vowel === "images/280/vowels/46.png") {
+            audioPlayer.style.display = 'block';
+            audioPlayer.src = "audios/280/c219v46.mp3";
+        } else if (card.consonant === "images/280/consonants/pl-219.png" && card.vowel === "images/280/vowels/47.png") {
+            audioPlayer.style.display = 'block';
+            audioPlayer.src = "audios/280/c219v47.mp3";
+        } else if (card.consonant === "images/280/consonants/pl-219.png" && card.vowel === "images/280/vowels/4647.png") {
+            audioPlayer.style.display = 'block';
+            audioPlayer.src = "audios/280/c219v4647.mp3";
+        } else if (card.consonant === "images/280/consonants/kl-2219.png" && card.vowel === "images/280/vowels/45.png") {
+            audioPlayer.style.display = 'block';
+            audioPlayer.src = "audios/280/c2219v45.mp3";
+        } else if (card.consonant === "images/280/consonants/kl-2219.png" && card.vowel === "images/280/vowels/48.png") {
+            audioPlayer.style.display = 'block';
+            audioPlayer.src = "audios/280/c2219v48.mp3";
+        } else if (card.consonant === "images/280/consonants/kl-2219.png" && card.vowel === "images/280/vowels/49.png") {
+            audioPlayer.style.display = 'block';
+            audioPlayer.src = "audios/280/c2219v49.mp3";
+        } else if (card.consonant === "images/280/consonants/kl-2219.png" && card.vowel === "images/280/vowels/50.png") {
+            audioPlayer.style.display = 'block';
+            audioPlayer.src = "audios/280/c2219v50.mp3";
+        } else if (card.consonant === "images/280/consonants/kl-2219.png" && card.vowel === "images/280/vowels/62.png") {
+            audioPlayer.style.display = 'block';
+            audioPlayer.src = "audios/280/c2219v62.mp3";
+        } else if (card.consonant === "images/280/consonants/kl-2219.png" && card.vowel === "images/280/vowels/63.png") {
+            audioPlayer.style.display = 'block';
+            audioPlayer.src = "audios/280/c2219v63.mp3";
+        } else if (card.consonant === "images/280/consonants/kl-2219.png" && card.vowel === "images/280/vowels/64.png") {
+            audioPlayer.style.display = 'block';
+            audioPlayer.src = "audios/280/c2219v64.mp3";
+        } else if (card.consonant === "images/280/consonants/kl-2219.png" && card.vowel === "images/280/vowels/46.png") {
+            audioPlayer.style.display = 'block';
+            audioPlayer.src = "audios/280/c2219v46.mp3";
+        } else if (card.consonant === "images/280/consonants/kl-2219.png" && card.vowel === "images/280/vowels/47.png") {
+            audioPlayer.style.display = 'block';
+            audioPlayer.src = "audios/280/c2219v47.mp3";
+        } else if (card.consonant === "images/280/consonants/kl-2219.png" && card.vowel === "images/280/vowels/4647.png") {
+            audioPlayer.style.display = 'block';
+            audioPlayer.src = "audios/280/c2219v4647.mp3";
+        } else if (card.consonant === "images/280/consonants/sl-3819.png" && card.vowel === "images/280/vowels/45.png") {
+            audioPlayer.style.display = 'block';
+            audioPlayer.src = "audios/280/c3819v45.mp3";
+        } else if (card.consonant === "images/280/consonants/sl-3819.png" && card.vowel === "images/280/vowels/48.png") {
+            audioPlayer.style.display = 'block';
+            audioPlayer.src = "audios/280/c3819v48.mp3";
+        } else if (card.consonant === "images/280/consonants/sl-3819.png" && card.vowel === "images/280/vowels/49.png") {
+            audioPlayer.style.display = 'block';
+            audioPlayer.src = "audios/280/c3819v49.mp3";
+        } else if (card.consonant === "images/280/consonants/sl-3819.png" && card.vowel === "images/280/vowels/50.png") {
+            audioPlayer.style.display = 'block';
+            audioPlayer.src = "audios/280/c3819v50.mp3";
+        } else if (card.consonant === "images/280/consonants/sl-3819.png" && card.vowel === "images/280/vowels/62.png") {
+            audioPlayer.style.display = 'block';
+            audioPlayer.src = "audios/280/c3819v62.mp3";
+        } else if (card.consonant === "images/280/consonants/sl-3819.png" && card.vowel === "images/280/vowels/63.png") {
+            audioPlayer.style.display = 'block';
+            audioPlayer.src = "audios/280/c3819v63.mp3";
+        } else if (card.consonant === "images/280/consonants/sl-3819.png" && card.vowel === "images/280/vowels/64.png") {
+            audioPlayer.style.display = 'block';
+            audioPlayer.src = "audios/280/c3819v64.mp3";
+        } else if (card.consonant === "images/280/consonants/sl-3819.png" && card.vowel === "images/280/vowels/46.png") {
+            audioPlayer.style.display = 'block';
+            audioPlayer.src = "audios/280/c3819v46.mp3";
+        } else if (card.consonant === "images/280/consonants/sl-3819.png" && card.vowel === "images/280/vowels/47.png") {
+            audioPlayer.style.display = 'block';
+            audioPlayer.src = "audios/280/c3819v47.mp3";
+        } else if (card.consonant === "images/280/consonants/sl-3819.png" && card.vowel === "images/280/vowels/4647.png") {
+            audioPlayer.style.display = 'block';
+            audioPlayer.src = "audios/280/c3819v4647.mp3";
+        } else {
+            audioPlayer.style.display = 'none';
         }
 
         currentIndex++;

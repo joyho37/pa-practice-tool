@@ -11,28 +11,64 @@
 
     gtag('config', 'G-Q3TC2WL8F8');
   </script>
-  
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Google Search Console -->
   <meta name="google-site-verification" content="tVpidXvqW5v9QK-nlbYKTIMdxMvinE9xE7v1FCPO5dM" />
 
-  <title>PA練習小工具</title>
+  <title>140音 - PA練習小工具</title>
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
-  <div class="container py-4">
-    <h1 class="text-center">PA練習小工具</h1>
+  <!-- 主選單 -->
+  <nav class="navbar navbar-expand bg-body-tertiary">
+    <div class="container">
+      <a class="navbar-brand" href="/"><span class="fw-bold" style="color: #F3A49B;">P</span>r<span class="fw-bold"
+          style="color: #91BCE5;">A</span>cticeTool</a>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">140音</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="280.html">280音</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
-    <!-- 選單 -->
-    <div class="d-flex gap-2 justify-content-center mt-3 mt-sm-4">
-      <a class="btn btn-warning" href="https://www.youtube.com/watch?v=DIZSdY11CKs" target="_blank">暖身33吐舌歌</a>
-      <div class="vr d-flex align-self-center mx-2" style="height: 1.5em;"></div>
-      <a class="btn btn-secondary disabled">140音</a>
-      <a class="btn btn-secondary" href="280.html">280音</a>
+  <div class="container py-4">
+    <h1 class="text-center">140音練習</h1>
+
+    <!-- 33 trigger modal -->
+    <button type="button" class="btn btn-warning d-block mx-auto mt-3" data-bs-toggle="modal"
+      data-bs-target="#warmupModal">
+      暖身33吐舌歌
+    </button>
+
+    <!-- 暖身33吐舌歌 -->
+    <div class="modal fade" id="warmupModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">萬丈高樓吐舌頭</h1>
+          </div>
+          <div class="modal-body">
+            <div class="ratio ratio-16x9">
+              <iframe id="youtubeIframe" src="https://www.youtube.com/embed/DIZSdY11CKs?rel=0"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"></iframe>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">暖身完成，馬上開始</button>
+          </div>
+        </div><!-- .modal-content -->
+      </div>
     </div>
 
     <!-- 音素積木 -->
